@@ -7,8 +7,6 @@ const UserSchema = new mongoose.Schema ({
     email: { type: String, required: true, unique: true},
     username: { type: String, required: true, unique: true},
     passwordHash: { type: String, required: true}
-}, {
-    timestamps: true
 })
 
 UserSchema.methods.genPasswordHash = function (password) {
@@ -35,6 +33,6 @@ UserSchema.methods.genUserObj = function() {
   }
 }
 
-const User = mongoose.model('User', UserSchema)
+const User = mongoose.model('User', UserSchema, 'loginInfo')
 
 module.exports = User
