@@ -3,8 +3,8 @@ FIRST TIME CLONING
 2) cd FinalProject
 3) git checkout -b yourBranchName
 4) //Make all your changes you want to make with your code!
-5) git commit -m "Add commit name"
-6) git add *
+5) git add * 
+6) git commit -m "Add commit name"
 7) git push origin yourBranchName
 8) //Go to github website and make a PULL request to merge your code with the main project.
 9) // One elected person will merge your branch with the main branch.
@@ -20,8 +20,8 @@ ALL SUBSEQUENT CLONES
 3) cd FinalProject
 4) git checkout -b yourBranchName
 5) //Make all your changes you want to make with your code!
-6) git commit -m "Add commit name"
-7) git add *
+6) git add *
+7) git commit -m "Add commit name"
 8) git push origin yourBranchName
 9) //Go to github website and make a PULL request to merge your code with the main project.
 10) // One elected person will merge your branch with the main branch.
