@@ -15,9 +15,9 @@ FIRST TIME CLONING
 14) git checkout main
 
 ALL SUBSEQUENT CLONES
-1) cd ..
-2) git clone https://github.com/Team6NodeProject/FinalProject
-3) cd FinalProject
+1) git checkout main 
+2) git fetch origin 
+3) git reset --hard origin/main
 4) git checkout -b yourBranchName
 5) //Make all your changes you want to make with your code!
 6) git add *
