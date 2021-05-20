@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http'
 const getNewsUrl = 'http://localhost:3000/News/getNews'
 const addNewsUrl = 'http://localhost:3000/News/addNews'
 const deleteNewsUrl = 'http://localhost:3000/News/delete/'
+const updateNewsUrl = 'http://localhost:3000/News/updateNews'
 
 
 @Injectable({
@@ -24,5 +25,9 @@ export class NewsService {
 
   addNews(news: any) {
     return this.http.post(addNewsUrl, news)
+  }
+
+  updateNews(news: any) {
+    return this.http.put(updateNewsUrl, news)
   }
 }
