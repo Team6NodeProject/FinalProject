@@ -6,6 +6,7 @@ const cors = require('cors')
 const newsRoutes = require('./routes/newsRoutes')
 const userRoutes = require('./routes/userRoutes')
 
+// If in docker url should be server instead of localhost
 mongoose.connect(
     'mongodb://localhost:27017/finalproject',
     {
