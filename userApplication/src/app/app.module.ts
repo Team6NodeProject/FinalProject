@@ -10,6 +10,7 @@ import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { FooterComponent } from './footer/footer.component';
 import { SportsSectionComponent } from './sports-section/sports-section.component';
 import { HomepageHeaderComponent } from './homepage-header/homepage-header.component';
+import { AboutComponent } from './about/about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomepageHeaderComponent } from './homepage-header/homepage-header.compo
     ImageGalleryComponent,
     FooterComponent,
     SportsSectionComponent,
-    HomepageHeaderComponent
+    HomepageHeaderComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
