@@ -11,7 +11,8 @@ FIRST TIME CLONING
 10) // If there are conflicts we should try and resolve together, then merge will be completed.
 11) git push origin :yourBranchName
 12) git checkout main
-13) git branch -d yourBranchName
+13) git pull
+14) git branch -d yourBranchName
 
 ALL SUBSEQUENT CLONES
 1) git checkout main 
@@ -26,4 +27,5 @@ ALL SUBSEQUENT CLONES
 10) // If there are conflicts we should try and resolve together.
 11) git push origin :yourBranchName
 12) git checkout main
-13) git branch -d yourBranchName
+13) git pull
+14) git branch -d yourBranchName
