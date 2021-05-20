@@ -12,6 +12,7 @@ import { HomepageHeaderComponent } from './homepage-header/homepage-header.compo
 import { HomepageviewComponent } from './homepage/homepageview/homepageview.component';
 import { SportsPageComponent } from './sports-page/sports-page.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutComponent } from './about/about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HomepageHeaderComponent,
     HomepageviewComponent,
     SportsPageComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
