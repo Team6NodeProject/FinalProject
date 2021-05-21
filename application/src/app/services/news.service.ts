@@ -12,6 +12,7 @@ const updateNewsUrl = 'http://localhost:3000/News/updateNews'
   providedIn: 'root'
 })
 export class NewsService {
+  titleToEdit: string = "";
 
   constructor(private http: HttpClient) { }
 
@@ -28,6 +29,7 @@ export class NewsService {
   }
 
   updateNews(news: any) {
+    console.log(news);
     return this.http.put(updateNewsUrl, news)
   }
 }

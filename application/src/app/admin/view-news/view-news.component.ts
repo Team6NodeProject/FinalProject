@@ -41,7 +41,8 @@ export class ViewNewsComponent implements OnInit {
 
 
   updateNews(news: any){
-    this.router.navigate(['/edit-news',news])
+    this.newsService.titleToEdit = news.title;
+    this.router.navigateByUrl('edit-news');
   }
 
 }
