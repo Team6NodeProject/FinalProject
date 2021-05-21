@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ChatboxComponent } from './chatBox/chatbox/chatbox.component';
 import { WeatherReportComponent } from './weather-report/weather-report.component';
 import { ThreeLatestNewsComponent } from './three-latest-news/three-latest-news.component';
-import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageHeaderComponent } from './homepage-header/homepage-header.component';
 import { HomepageviewComponent } from './homepage/homepageview/homepageview.component';
@@ -16,6 +15,7 @@ import { AboutComponent } from './about/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { NewsService } from './services/news.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     ChatboxComponent,
     WeatherReportComponent,
     ThreeLatestNewsComponent,
-    ImageGalleryComponent,
     FooterComponent,
     HomepageHeaderComponent,
     HomepageviewComponent,
@@ -35,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SlickCarouselModule
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]
