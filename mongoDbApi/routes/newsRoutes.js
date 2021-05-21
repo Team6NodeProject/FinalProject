@@ -17,11 +17,16 @@ router.get('/getSports', (req, res) => {
 
 router.post('/addNews', (req, res) => {
   const { title, description, image, publishDate, category} = req.body
-
+  console.log("req.body",req.body)
   News.create(req.body, (err, result) => {
-    if(err) res.send('Error inserting document!!');
+    if(err) {
+        res.send('Error inserting document!!')
+        console.log("err", err)
+    }
     else{
-        res.send({ message : 'Document inserted successfully!!'});
+        res.send(
+            { message : 'Document inserted successfully!!'});
+            console.log("res server", res)
     }
 })
 })
