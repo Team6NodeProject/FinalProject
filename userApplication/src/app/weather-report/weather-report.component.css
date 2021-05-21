@@ -1,0 +1,17 @@
+#weather-report{
+
+    display: block;
+    border-radius: 20px;
+    width: 250px;
+    height: 300px;
+    background: rgb(0, 12, 12);
+    background: linear-gradient(180deg, rgb(173, 66, 66), rgba(12,7,32,12));
+    color: white;
+
+}
+
+.weather-row{
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
