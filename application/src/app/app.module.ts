@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +11,7 @@ import { ViewNewsComponent } from './admin/view-news/view-news.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { SearchPipe } from './pipe/search.pipe';
 import { EditNewsComponent } from './admin/edit-news/edit-news.component';
+import { AddNewsComponent } from './admin/add-news/add-news.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { EditNewsComponent } from './admin/edit-news/edit-news.component';
     ViewNewsComponent,
     HeaderComponent,
     SearchPipe,
-    EditNewsComponent
+    EditNewsComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
