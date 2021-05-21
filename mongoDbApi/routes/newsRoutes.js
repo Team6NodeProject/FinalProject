@@ -29,9 +29,11 @@ router.post('/addNews', (req, res) => {
 // Deletes news by title. You must always use the same title
 router.delete('/delete/:title', (req, res) => {
     let title = req.params.title;
+    console.log(title);
     News.findOneAndDelete({"title" : title}, (err, result) => {
         if(err) res.send('Error deleting document!!');
         else res.send({ message : 'Document deleted successfully!!'});
+        
     })
 })
 

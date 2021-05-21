@@ -1,12 +1,11 @@
-<app-login-header></app-login-header>
-
+<br>
 <div class='container justify-content-center' >
-    <div class='card-header bg-secondary text-white'>
-        <h3 class='card-title'>Admin Regsiration</h3>
+    <div class='card-header text-white' style="background-color: black;" >
+        <h3 class='card-title' style="text-align: center;">Admin Register</h3>
     </div> 
     
     <div class='login-body'>
-
+</div>
         <!--[mustMatch]="['userPass', 'confirmPassword' ]-->
         <form #userForm='ngForm' (ngSubmit)="createUser()" >
 
@@ -96,11 +95,10 @@
             </div>
 
             <!-- submit button -->
-            <div class='card-footer'>
-                <button class='btn btn-primary' [disabled]='userForm.invalid'>register</button>
+            <div class='card-footer' style="text-align: center;">
+                <button class='btn btn-primary' [disabled]='userForm.invalid' style="background-color: black;">register</button>
             </div> 
         </form>
 
     </div>
 
-</div>
