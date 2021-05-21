@@ -7,41 +7,76 @@
     <div class='login-body'>
 </div>
         <!--[mustMatch]="['userPass', 'confirmPassword' ]-->
-        <form >
+        <form #editNewsForm='ngForm' (ngSubmit)="createNews()" >
 
             <div class='form-group'>
-                <label>Title</label>
-
-                <input  class='form-control' type='text' placeholder="Title" >
+                <h3>Title: {{title}}</h3>
+                
             </div>
 
             <div class='form-group'>
-                <label  >Description</label>
+                <label for='description'>Description</label>
 
-                <input class='form-control' type='text' placeholder="Description" />
-                               
+                <input 
+                    class='form-control'
+                    type='text'
+                    id='description'
+                    name='description'
+                    #newDescription='ngModel'
+                    [ngClass]="{ 'is-invalid': newDescription.touched && newDescription.invalid}"
+                    required
+                    [(ngModel)]='description'/>
+                                <!-- error handling for username-->
             </div>
 
             <div class='form-group'>
-                <label>Image URL</label>
+                <label for='image'>Image</label>
 
-                <input class='form-control' type='text' placeholder="URL" >
+                <input 
+                    class='form-control'
+                    type='text'
+                    id='image'
+                    name='image'
+                    #newImage='ngModel'
+                    [ngClass]="{ 'is-invalid': newImage.touched && newImage.invalid}"
+                    required
+                    [(ngModel)]='image'/>
+                                <!-- error handling for username-->
             </div>
 
             <div class='form-group'>
-                <label>Published Date</label>
+                <label for='publishDate'>Date</label>
 
-                <input class='form-control' type='text' placeholder="Published Date" >
+                <input 
+                    class='form-control'
+                    type='date'
+                    id='publishDate'
+                    name='publishDate'
+                    #newDate='ngModel'
+                    [ngClass]="{ 'is-invalid': newDate.touched && newDate.invalid}"
+                    required
+                    [(ngModel)]='publishDate'/>
+                                <!-- error handling for username-->
             </div>
-
 
             <div class='form-group'>
-                <label>Category</label>
+                <label for='category'>Category</label>
 
-                <input class='form-control' type='text' placeholder="Category" >
+                <input 
+                    class='form-control'
+                    type='text'
+                    id='category'
+                    name='category'
+                    #newCategory='ngModel'
+                    [ngClass]="{ 'is-invalid': newCategory.touched && newCategory.invalid}"
+                    required
+                    [(ngModel)]='category'/>
+                                <!-- error handling for username-->
             </div>
-            <div style="text-align: center;" class='form-group'>
-                <button class='btn btn-primary' style="background-color: black;">Update</button>
+
+            <!-- submit button -->
+            <div class='card-footer' style="text-align: center;">
+                <button class='btn btn-primary' [disabled]='editNewsForm.invalid' style="background-color: black;">Update News</button>
             </div> 
         </form>
 
