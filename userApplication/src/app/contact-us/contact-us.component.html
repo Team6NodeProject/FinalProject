@@ -21,7 +21,7 @@
                     required
                     email
                     [(ngModel)]='email'/>
-                                <!-- error handling for username-->
+                <!-- error handling for username-->
                 <span *ngIf='emailName.touched && emailName.invalid && emailName.errors?.required' class='invalid-feedback'>
                     Email is required.
                 </span>
@@ -29,7 +29,7 @@
                     A proper email is required.
                 </span>
             </div>
-        <!-- end of email -->        
+            <!-- end of email -->        
 
             <div class='form-group'>
                 <label for='name'>Email Body</label>
@@ -37,7 +37,6 @@
                 <input 
                     class='form-control'
                     type='text'
-                    rows="4" cols="50"
                     id='emailBody'
                     name='emailBody'
                     #emailBodyM='ngModel'
