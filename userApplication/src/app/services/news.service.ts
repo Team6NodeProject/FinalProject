@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { SportsWeather } from '../sports-page/sportsWeather';
 
 // If in docker url should be server instead of localhost
 const getNewsUrl = 'http://localhost:3000/News/getNews'
@@ -17,6 +18,6 @@ export class NewsService {
   }
 
   getSports() {
-    return this.http.get(getSportsUrl)
+    return this.http.get<SportsWeather[]>(getSportsUrl)
   }
 }

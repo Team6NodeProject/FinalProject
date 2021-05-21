@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from '../services/news.service';
+import { SportsWeather } from './sportsWeather';
 
 @Component({
   selector: 'app-sports-page',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SportsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newsService: NewsService) { }
+  allSportsArticleReports: SportsWeather[] = [];
+  filter:string = "";
+
 
   ngOnInit(): void {
+    //itertate through and filter based on sports.
+    this.newsService.getSports().subscribe(
+      (resposne) =>{
+        console.log(resposne);
+        this.allSportsArticleReports = resposne;
+        
+      }
+    )
   }
 
+  filterNews(){
+    //TODO add a filter.
+  }
 }
