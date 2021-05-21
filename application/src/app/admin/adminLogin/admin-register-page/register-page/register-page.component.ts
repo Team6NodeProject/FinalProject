@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -8,12 +8,12 @@ import { AdminService } from 'src/app/services/admin.service';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
+  
 
-  constructor(private router: Router, private adminService:AdminService) { }
+  constructor(private router: Router, private adminService:AdminService, private route: ActivatedRoute,) { }
 
   usersName: string = '';
-  email: string = '';
-  //not the best way. 
+  email: string = ''; 
   password: string = '';
   confirmPassword: string =''; 
 
@@ -28,10 +28,11 @@ export class RegisterPageComponent implements OnInit {
       password: this.password
     }
     this.adminService.addAdmin(newAdmin).subscribe(
-      (response)=> {
-        console.log("uuser was added");
+      (response=> {
+        console.log("user was added")
       }
-    );
+    ));
+    this.router.navigate(['./login']);
   }
 
 }
