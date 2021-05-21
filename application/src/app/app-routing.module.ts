@@ -24,6 +24,10 @@ const routes: Routes = [
     component: EditNewsComponent
   },
   {
+    path:"add-news",
+    component: AddNewsComponent
+  },
+  {
     path: "view-news",
     component: ViewNewsComponent
   },
