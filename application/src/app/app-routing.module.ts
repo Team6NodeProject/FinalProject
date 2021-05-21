@@ -32,6 +32,10 @@ const routes: Routes = [
     component: ViewNewsComponent
   },
   {
+    path: "add-news",
+    component: AddNewsComponent
+  },
+  {
     path:"**",
     redirectTo:"login"
   }
