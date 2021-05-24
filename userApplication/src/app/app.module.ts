@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,9 +14,19 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutComponent } from './about/about/about.component';
 import { FormsModule } from '@angular/forms';
 import { NewsService } from './services/news.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-
+//ok
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChatModule } from './chat/chat.module';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SharedModule } from './shared/shared.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MatMenuModule } from '@angular/material/menu';
+//import { MatIconModule } from '@angular/material/icon';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,12 +40,29 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     ContactUsComponent,
     AboutComponent
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+//ok
+    BrowserAnimationsModule,
+    ChatModule,
+    SharedModule,
+    MatMenuModule,
+    // MatIconModule, 
+    
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [NewsService],
   bootstrap: [AppComponent]
