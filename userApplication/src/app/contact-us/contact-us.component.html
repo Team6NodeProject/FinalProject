@@ -1,6 +1,6 @@
 <app-homepage-header></app-homepage-header>
 
-
+<br>
 <div class='container justify-content-center' >
     <div class='card-header bg-dark text-white'>
         <h3 class='card-title'>Contact Us</h3>
@@ -49,17 +49,6 @@
                     minlength="3"
                     [(ngModel)]='userEmailBody'
                     ></textarea>
-                <!-- <input 
-                    class='form-control'
-                    type='text'
-                    style="height:200px"
-                    id='emailBody'
-                    name='emailBody'
-                    #emailBodyM='ngModel'
-                    [ngClass]="{ 'is-invalid': emailBodyM.touched && emailBodyM.invalid}"
-                    required
-                    minlength="3"
-                    [(ngModel)]='userEmailBody'/> -->
 
                     <span *ngIf='emailBodyM.touched && emailBodyM.invalid && emailBodyM.errors?.email' class='invalid-feedback'>
                         Please provide a body before submitting.
@@ -69,7 +58,7 @@
 
 
             <!-- submit button -->
-            <div class='card-footer'>
+            <div class='card-footer'><div class='fa fa-fw fa-send'></div>
                 <button class='btn btn-primary' [disabled]='userForm.invalid'>Send Email</button>
             </div> 
         </form>
