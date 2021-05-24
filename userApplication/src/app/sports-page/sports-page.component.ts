@@ -13,9 +13,7 @@ export class SportsPageComponent implements OnInit {
   allSportsArticleReports: SportsWeather[] = [];
   filter:string = "";
 
-
   ngOnInit(): void {
-    //itertate through and filter based on sports.
     this.newsService.getSports().subscribe(
       (resposne) =>{
         this.allSportsArticleReports = resposne;
@@ -26,6 +24,18 @@ export class SportsPageComponent implements OnInit {
   }
 
   filterNews(){
-    //TODO add a filter.
+    if(this.filter === ""){
+      this.ngOnInit();
+    } else {
+      let filtered = [];
+      for (const num in this.allSportsArticleReports){
+        if(this.allSportsArticleReports[num].description.search(this.filter) != -1 || this.allSportsArticleReports[num].title.search(this.filter) != -1){
+          filtered.push(this.allSportsArticleReports[num]);
+        }
+      }
+      this.allSportsArticleReports = filtered;
+    }
   }
+
+  
 }

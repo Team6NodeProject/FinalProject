@@ -2,19 +2,21 @@
 
 <br>
 <div class='container justify-content-center' >
-    <div class='card-header bg-secondary text-white'>
+    <div class='card-header bg-dark text-white'>
         <h3 class='card-title'>Contact Us</h3>
     </div> 
     
-    <div class='login-body'>
+    <div class='body' >
         <form #userForm='ngForm' (ngSubmit)="sendEmail()" >
             <!-- Email part -->
             <div class='form-group'>
                 <label for='email'>Email</label>
+
                 <input 
                     class='form-control'
                     type='text'
                     id='email'
+                    style="width: 300px;"
                     name='email'
                     #emailName='ngModel'
                     [ngClass]="{ 'is-invalid': emailName.touched && emailName.invalid}"
@@ -33,17 +35,20 @@
 
             <div class='form-group'>
                 <label for='name'>Email Body</label>
+                <br>
 
-                <textarea  rows="10" cols="50" 
-                    class='form-control'
+                <textarea id="emailBody" 
                     type='text'
+                    name="emailBody" 
                     id='emailBody'
-                    name='emailBody'
+                    placeholder="what can we help you with?" 
+                    style="height:200px; width:500px;"
                     #emailBodyM='ngModel'
                     [ngClass]="{ 'is-invalid': emailBodyM.touched && emailBodyM.invalid}"
                     required
                     minlength="3"
-                    [(ngModel)]='userEmailBody'></textarea>
+                    [(ngModel)]='userEmailBody'
+                    ></textarea>
 
                     <span *ngIf='emailBodyM.touched && emailBodyM.invalid && emailBodyM.errors?.email' class='invalid-feedback'>
                         Please provide a body before submitting.
