@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./edit-news.component.css']
 })
 export class EditNewsComponent implements OnInit {
-  constructor(private router: Router, private newsService:NewsService) { }
+  constructor(private router: Router, private newsService:NewsService, private auth: AuthService) { }
 
   title: string = this.newsService.titleToEdit;
   description: string = "";
@@ -17,6 +18,9 @@ export class EditNewsComponent implements OnInit {
   category: string = "";
 
   ngOnInit(): void {
+    if(this.auth.retrieveUser() == null){
+      this.router.navigate(['/login']);
+    }
   }
 
   createNews(){

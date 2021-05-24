@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class AddNewsComponent implements OnInit {
 
-  constructor(private newService: NewsService, private router: Router) { }
+  constructor(private newService: NewsService, private router: Router, private auth: AuthService) { }
 
   addNews = new FormGroup({
     title: new FormControl(),
@@ -21,6 +22,9 @@ export class AddNewsComponent implements OnInit {
   })
 
   ngOnInit(): void {
+    if(this.auth.retrieveUser() == null){
+      this.router.navigate(['/login']);
+    }
   }
 
   addingNews(){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -10,12 +11,12 @@ import { AdminService } from 'src/app/services/admin.service';
 export class RegisterPageComponent implements OnInit {
   
 
-  constructor(private router: Router, private adminService:AdminService, private route: ActivatedRoute,) { }
+  constructor(private router: Router, private adminService:AdminService, private route: ActivatedRoute, private auth: AuthService) { }
 
   usersName: string = '';
   email: string = ''; 
   password: string = '';
-  confirmPassword: string =''; 
+  confirmPassword: string ='';
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class RegisterPageComponent implements OnInit {
         console.log("user was added")
       }
     ));
+    this.auth.registerUser();
     this.router.navigate(['./login']);
   }
 

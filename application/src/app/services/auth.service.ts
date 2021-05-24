@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+  registered: boolean = false;
+
   constructor() { }
 
   storeUser(user: any){
@@ -20,4 +22,11 @@ export class AuthService {
       sessionStorage.removeItem("user");
   }
   
+  registerUser(){
+    this.registered = true;
+  }
+
+  clearRegister(){
+    this.registered = false;
+  }
 }

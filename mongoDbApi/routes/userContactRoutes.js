@@ -9,7 +9,7 @@ router.post('/addUserQuery', (req, res) => {
             console.log("error in insert", err);
         } else {
             res.send({ message: 'user contact/email was inserted properly.'})
-            onsole.log("data was inserted properly.");
+            console.log("data was inserted properly.");
         }
     })
 })
