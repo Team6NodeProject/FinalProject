@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherReportService } from '../services/weather-report.service';
+import { WeatherInfo } from './weatherInfo';
 
 @Component({
   selector: 'app-weather-report',
@@ -7,38 +9,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WeatherReportComponent implements OnInit {
 
+  
   weatherInfo: any = [];
-  constructor() { }
+  constructor(private weatherService: WeatherReportService) { }
 
-  cityName:string = "Seattle"
-  weatherUrl:string = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + this.cityName + "&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29";
-
-  
-  temp: number = 0; 
-  feelsLike: number = 0;
-  description: string = "null";
-
-  
-
+  key: string = "&appid=fbf712a5a83d7305c3cda4ca8fe7ef29";
+  weatherForecast:WeatherInfo[] = [];
+  testWeather!:WeatherInfo;
 
   ngOnInit(): void {
-    this.getCity();
-    this.setWeather();
-  }
-
-  getCity(){
-    //TODO dont know how to fill.
-  }
-
-  setWeather(){
-    fetch(this.weatherUrl).then( response => response.json()).then(data =>{
-      this.feelsLike = (Math.round((data['list'][0].feels_like.day * (9.0/5.0)) + 32));
-      this.description = data['list'][0]['weather'][0].description;
-      this.temp = (Math.round((data['list'][0].temp.day * (9.0/5.0)) + 32))
-    }) 
+    //TODO USE REDIS CALLING THIS APU TAKES FOREVER NEED TO CACHE THIS. 
+    if(this.weatherService.isFilled == false){
+      this.setWeatherBasedOnLocation();
+    } else {
+      this.weatherForecast = this.weatherService.getWeatherForecast();
+    }
 
   }
 
+  convertToFahrenheit(kelvin: number){
+    return Math.round((kelvin - 273.15) * (9.0/5.0) + 32);
+  }
 
+  setFiveDayForecast(data: any){
+    for(let i = 3; i < data['list'].length; i= i+8){
+      let weatherTemplate = {    
+        temp: this.convertToFahrenheit(data['list'][i].main.temp),
+        city: data['city'].name,
+        description: data['list'][i].weather[0].description,
+        feelsLike: this.convertToFahrenheit(data['list'][i].main.feels_like),
+        humidity: data['list'][i].main.humidity,
+        date: data['list'][i].dt_txt
+        }
+      this.weatherForecast.push(weatherTemplate);
+    }
+    
+  }
+
+
+  setWeatherBasedOnLocation(){
+    //TODO need to get current weather, not just forecast. 
+    this.weatherService.getLocationService().then(response=>{
+      let weatherAPIURL = "http://api.openweathermap.org/data/2.5/forecast?lat="+ Math.round(response.lat) + "&lon=" + Math.round(response.long) + this.key;
+      fetch(weatherAPIURL).then( response => response.json()).then(data =>{
+        this.setFiveDayForecast(data);
+        //send to weatherService to hold data. would use redis if possible.
+        this.weatherService.setWeatherForecast(this.weatherForecast);
+      }) 
+    })
+  }
 
 }
