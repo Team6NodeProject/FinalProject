@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { NewsService } from 'src/app/services/news.service';
 import { News } from './news';
 
@@ -19,10 +20,12 @@ export class ViewNewsComponent implements OnInit {
     category: ""
 }
 
-  constructor(private newsService: NewsService, private router:Router) { }
+  constructor(private newsService: NewsService, private router:Router, private auth: AuthService) { }
 
   ngOnInit(): void {
-
+    if(this.auth.retrieveUser() == null){
+      this.router.navigate(['/login']);
+    }
     this.newsService.getNews().subscribe(news => { 
       this.allNews = news as News[]
     })
