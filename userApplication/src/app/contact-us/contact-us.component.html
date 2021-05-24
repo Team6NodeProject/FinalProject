@@ -20,7 +20,7 @@
                     [ngClass]="{ 'is-invalid': emailName.touched && emailName.invalid}"
                     required
                     email
-                    [(ngModel)]='email'/>
+                    [(ngModel)]='userEmail'/>
                 <!-- error handling for username-->
                 <span *ngIf='emailName.touched && emailName.invalid && emailName.errors?.required' class='invalid-feedback'>
                     Email is required.
@@ -43,7 +43,7 @@
                     [ngClass]="{ 'is-invalid': emailBodyM.touched && emailBodyM.invalid}"
                     required
                     minlength="3"
-                    [(ngModel)]='emailBody'/>
+                    [(ngModel)]='userEmailBody'/>
 
                     <span *ngIf='emailBodyM.touched && emailBodyM.invalid && emailBodyM.errors?.email' class='invalid-feedback'>
                         Please provide a body before submitting.

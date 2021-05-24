@@ -18,9 +18,7 @@ export class SportsPageComponent implements OnInit {
     //itertate through and filter based on sports.
     this.newsService.getSports().subscribe(
       (resposne) =>{
-        console.log(resposne);
         this.allSportsArticleReports = resposne;
-        
       }, (error)=>{
         
       }
