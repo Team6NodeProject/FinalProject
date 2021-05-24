@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddNewsComponent } from './admin/add-news/add-news.component';
 import { AdminLoginPageComponent } from './admin/adminLogin/admin-login-page/admin-login-page.component';
 import { RegisterPageComponent } from './admin/adminLogin/admin-register-page/register-page/register-page.component';
 import { EditNewsComponent } from './admin/edit-news/edit-news.component';
@@ -21,6 +22,18 @@ const routes: Routes = [
   {
     path:"edit-news",
     component: EditNewsComponent
+  },
+  {
+    path:"add-news",
+    component: AddNewsComponent
+  },
+  {
+    path: "view-news",
+    component: ViewNewsComponent
+  },
+  {
+    path: "add-news",
+    component: AddNewsComponent
   },
   {
     path:"**",
