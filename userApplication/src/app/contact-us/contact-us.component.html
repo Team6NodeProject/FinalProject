@@ -6,15 +6,17 @@
         <h3 class='card-title'>Contact Us</h3>
     </div> 
     
-    <div class='login-body'>
+    <div class='body' >
         <form #userForm='ngForm' (ngSubmit)="sendEmail()" >
             <!-- Email part -->
             <div class='form-group'>
                 <label for='email'>Email</label>
+
                 <input 
                     class='form-control'
                     type='text'
                     id='email'
+                    style="width: 300px;"
                     name='email'
                     #emailName='ngModel'
                     [ngClass]="{ 'is-invalid': emailName.touched && emailName.invalid}"
@@ -33,17 +35,31 @@
 
             <div class='form-group'>
                 <label for='name'>Email Body</label>
+                <br>
 
-                <input 
+                <textarea id="emailBody" 
+                    type='text'
+                    name="emailBody" 
+                    id='emailBody'
+                    placeholder="what can we help you with?" 
+                    style="height:200px; width:500px;"
+                    #emailBodyM='ngModel'
+                    [ngClass]="{ 'is-invalid': emailBodyM.touched && emailBodyM.invalid}"
+                    required
+                    minlength="3"
+                    [(ngModel)]='userEmailBody'
+                    ></textarea>
+                <!-- <input 
                     class='form-control'
                     type='text'
+                    style="height:200px"
                     id='emailBody'
                     name='emailBody'
                     #emailBodyM='ngModel'
                     [ngClass]="{ 'is-invalid': emailBodyM.touched && emailBodyM.invalid}"
                     required
                     minlength="3"
-                    [(ngModel)]='userEmailBody'/>
+                    [(ngModel)]='userEmailBody'/> -->
 
                     <span *ngIf='emailBodyM.touched && emailBodyM.invalid && emailBodyM.errors?.email' class='invalid-feedback'>
                         Please provide a body before submitting.

@@ -13,7 +13,6 @@ export class SportsPageComponent implements OnInit {
   allSportsArticleReports: SportsWeather[] = [];
   filter:string = "";
 
-
   ngOnInit(): void {
     this.newsService.getSports().subscribe(
       (resposne) =>{
@@ -37,4 +36,6 @@ export class SportsPageComponent implements OnInit {
       this.allSportsArticleReports = filtered;
     }
   }
+
+  
 }
