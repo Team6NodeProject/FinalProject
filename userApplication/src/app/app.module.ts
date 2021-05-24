@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherReportComponent } from './weather-report/weather-report.component';
@@ -70,7 +70,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+
+// map
+
+AgmCoreModule.forRoot({
+  apiKey: 'AIzaSyD7jdtVdFkNWFTUuBwP8scBtGSwzuSRLX0'
+})
+
   ],
   providers: [NewsService, StoreUserService, SocketService],
   entryComponents: [DialogUserComponent],

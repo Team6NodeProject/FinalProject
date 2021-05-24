@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" [routerLink]="['/homepage']" routerLinkActive=active>
         <img src="../../assets/iconApp/weatherApp.png" width="75" height="75" class="d-inline-block align-top" alt="">
@@ -23,4 +23,62 @@
         </li>
       </ul>
     </div>
-</nav>
+</nav> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .dropdown {
+            background-color: #373737;
+            float: right;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #373737;
+        }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #373737;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+
+      <a class="navbar-brand" [routerLink]="['/homepage']" routerLinkActive=active>
+        <img src="../../assets/iconApp/weatherApp.png" width="100" height="40" class="d-inline-block align-top" alt="" >
+      </a>
+
+        <a class="active,dropdown-toggle ; fa fa-fw fa-home" routerLink='/homepage' style=" width: 250px;margin: 10px;">Home</a> 
+        
+        <a class="active,dropdown-toggle; fa fa-gamepad" routerLink='/sports' style=" width: 250px;margin: 10px;"> Sports</a> 
+        <a class="active,dropdown-toggle; fa fa-fw fa-user" routerLink='/about' style="width: 250px;margin: 10px;"> About Us</a>
+        <a class="active,dropdown-toggle; fa fa-fw fa-envelope" routerLink='/contact' style="width: 250px;margin: 10px;"> Contact Us</a> 
+        <a class="active,dropdown-toggle; fa fa-fw fa-envelope" routerLink='/chat' style="width: 250px;margin: 10px;"> chat</a> 
+
+    </div>
+</body>
+</html>
+
