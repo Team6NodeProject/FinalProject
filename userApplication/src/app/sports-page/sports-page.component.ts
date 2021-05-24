@@ -21,6 +21,8 @@ export class SportsPageComponent implements OnInit {
         console.log(resposne);
         this.allSportsArticleReports = resposne;
         
+      }, (error)=>{
+        
       }
     )
   }

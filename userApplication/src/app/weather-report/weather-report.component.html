@@ -1,7 +1,16 @@
-<div id="weather-report">
-    <div class="weather-row" style="font-size: 45px;margin-top: 10px;">{{temp}}F</div>
-    <div class="weather-row" style="font-size: 20px;margin-top: 70px;">Feels Like : {{feelsLike}}F</div>
-    <div class="weather-row" style="font-size: 30px;margin-top: 10px;">{{cityName}}</div>
-    <div class="weather-row" style="font-size: 20px;margin-top: 5px;">{{description}}</div>
+
+<div class='row'>
+    <div class='column' *ngFor='let weatherCard of weatherForecast'>
+        <div id="weather-report">
+            <div class="weather-row" style="font-size: 35px;margin-top: 10px;">{{weatherCard.temp}}°</div>
+            <div class="weather-row" style="font-size: 20px;margin-top: 50px;">Feels Like: {{weatherCard.feelsLike}}°</div>
+            <div class="weather-row" style="font-size: 20px;margin-top: 5px;">City: {{weatherCard.city}}</div>
+            <div class="weather-row" style="font-size: 20px;margin-top: 5px;">{{weatherCard.description}}</div>
+            <div class="weather-row" style="font-size: 10px;margin-top: 5px;">Date: {{weatherCard.date}}PM</div>
+        </div>
+    </div>
 </div>
+
+
+
 

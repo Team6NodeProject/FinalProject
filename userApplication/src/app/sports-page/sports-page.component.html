@@ -22,39 +22,29 @@
 <div class="dropdown-divider"></div>
 
 
-<!-- weather info -->
-
+<!-- sports info Cards -->
 <div class='container mt-1'>
     <div class='row mb-6'>
         <div class='col-8'>
-
             <div class='row mt-5'>
                 <div appColor class="col-sm-8 col-md-8 col-lg-5" *ngFor='let sportNews of allSportsArticleReports'>
                     <div class="card">
                         <img class="card-img-top" [src]="sportNews.image" alt="image"/>
-
                         <div class="card-body">
                             <div class="row d-flex justify-content-between">
                                 <div class="">{{ sportNews.title }}</div>
                             </div>
-
                             <div class="mt-1 row d-flex flex-row justify-content-between">
                                 <div class="small text-muted">
                                    {{ sportNews.description }}
                                 </div>
-
                             </div> 
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
-
 </div>
 
 
