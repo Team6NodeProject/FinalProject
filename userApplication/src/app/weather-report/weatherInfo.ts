@@ -4,5 +4,6 @@ export interface WeatherInfo{
     description: string,
     feelsLike: number,
     humidity: number,
-    date: string
+    date: string,
+    outdoorWeather:string
 }
