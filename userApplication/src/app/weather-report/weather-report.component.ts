@@ -31,6 +31,18 @@ export class WeatherReportComponent implements OnInit {
     return Math.round((kelvin - 273.15) * (9.0/5.0) + 32);
   }
 
+  getDescriptionSimplified(description: string){
+    if(description.search("cloud") != -1 || description.search("clouds") != -1  ){
+      return "clouds";
+    } 
+    else if(description.search("rain") != -1){
+      return "rain";
+    }
+    else return "";
+
+
+  }
+
   setFiveDayForecast(data: any){
     for(let i = 3; i < data['list'].length; i= i+8){
       let weatherTemplate = {    
@@ -39,7 +51,8 @@ export class WeatherReportComponent implements OnInit {
         description: data['list'][i].weather[0].description,
         feelsLike: this.convertToFahrenheit(data['list'][i].main.feels_like),
         humidity: data['list'][i].main.humidity,
-        date: data['list'][i].dt_txt
+        date: data['list'][i].dt_txt,
+        outdoorWeather: this.getDescriptionSimplified(data['list'][i].weather[0].description)
         }
       this.weatherForecast.push(weatherTemplate);
     }
