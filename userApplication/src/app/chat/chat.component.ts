@@ -26,7 +26,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
   messages: Message[] = [];
   messageContent!: string;
   ioConnection: any;
-  storedUserName!: string;
+  storedUserName: string = "";
   dialogRef!: MatDialogRef<DialogUserComponent> | null;
   defaultDialogUserParams: any = {
     disableClose: true,
