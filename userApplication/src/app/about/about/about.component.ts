@@ -9,12 +9,11 @@ export class AboutComponent implements OnInit {
   title = 'My first AGM project';
   // lat = 51.678418;
   // lng = 7.809007;
-  
 
   @ViewChild('mapContainer', {static: false}) gmap: ElementRef;
   map: google.maps.Map;
-  lat = 40.730610;
-  lng = -73.935242;
+  lat = 39.8934937;
+  lng = -74.9179217;
   
   coordinates = new google.maps.LatLng(this.lat, this.lng);
 
@@ -37,6 +36,8 @@ export class AboutComponent implements OnInit {
       this.mapOptions);
       this.marker.setMap(this.map);
     }
+
+    
 
   constructor() { }
 
